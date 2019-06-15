@@ -15,7 +15,7 @@ struct CategoryRow : View {
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack(alignment: HorizontalAlignment.leading) {
             
             Text(self.categoryName)
                 .font(.headline)
@@ -28,7 +28,13 @@ struct CategoryRow : View {
                     
                     ForEach(self.items) { landmark in
                         
-                        NavigationButton(destination: LandmarkDetail(landmark: landmark))
+                        NavigationButton(
+                            destination: LandmarkDetail(
+                                landmark: landmark
+                                )
+                            ){
+                                CategoryItem(landmark: landmark)
+                        }
                     }
                 }
             }
